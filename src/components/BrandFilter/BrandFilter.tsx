@@ -1,7 +1,7 @@
 import React from 'react';
 
-export function BrandFilter() {
+export const BrandFilter: React.FC = () => {
   return (
     <h3>Brand Filter</h3>
   );
-}
+};

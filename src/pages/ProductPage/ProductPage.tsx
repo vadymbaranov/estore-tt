@@ -1,7 +1,7 @@
 import React from 'react';
 
-export function ProductPage() {
+export const ProductPage: React.FC = () => {
   return (
     <h1>Product Page</h1>
   );
-}
+};

@@ -2,7 +2,7 @@ import React from 'react';
 import style from './Header.module.scss';
 import logo from '../../assets/logo-symbol.png';
 
-export function Header() {
+export const Header: React.FC = () => {
   return (
     <header className={style.header}>
       <div className={style.header__content}>
@@ -21,4 +21,4 @@ export function Header() {
       </div>
     </header>
   );
-}
+};

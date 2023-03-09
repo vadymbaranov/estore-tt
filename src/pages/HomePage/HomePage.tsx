@@ -3,7 +3,7 @@ import style from './HomePage.module.scss';
 import { SearchBar } from '../../components/SearchBar/SearchBar';
 import { SideBar } from '../../components/SideBar';
 
-export function HomePage() {
+export const HomePage: React.FC = () => {
   const [query, setQuery] = useState('');
 
   const handleQueryChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
@@ -19,4 +19,4 @@ export function HomePage() {
       </div>
     </div>
   );
-}
+};
