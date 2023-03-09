@@ -1,0 +1,41 @@
+@import '../../styles/vars';
+@import '../../styles/extends';
+@import '../../styles/mixins';
+
+.header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: $whiteColor;
+  height: 86px;
+
+  &__content {
+    margin-left: 40px;
+
+    display: flex;
+    align-items: center;
+    gap: 0 13px;
+  }
+
+  &__title {
+    display: flex;
+  }
+}
+
+.logo {
+  height: 40px;
+  width: 38px;
+}
+
+.title {
+
+  &__task {
+    @extend %header-title-text;
+    color: $lightBlueColor;
+  }
+
+  &__author {
+    @extend %header-title-text;
+    color: $mainBlueColor;
+  }
+}

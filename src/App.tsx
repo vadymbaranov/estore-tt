@@ -1,26 +1,15 @@
 import React from 'react';
 import './App.scss';
+import { Header } from './components/Header';
+import { RoutesList } from './ReoutesList';
 
-interface Props {
-  onClick: () => void;
-}
-
-export const Provider: React.FC<Props> = React.memo(
-  ({ onClick, children }) => (
-    <button
-      type="button"
-      onClick={onClick}
-    >
-      {children}
-    </button>
-  ),
+export const App = () => (
+  <div className="app">
+    <Header />
+    <main className="app__page page">
+      <div className="page__container">
+        <RoutesList />
+      </div>
+    </main>
+  </div>
 );
-
-export const App: React.FC = () => {
-  return (
-    <div className="starter">
-      <Provider onClick={() => ({})}>
-      </Provider>
-    </div>
-  );
-};
