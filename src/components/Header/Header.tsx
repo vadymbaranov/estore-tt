@@ -1,5 +1,6 @@
 import React from 'react';
 import style from './Header.module.scss';
+import logo from '../../assets/logo-symbol.png';
 
 export function Header() {
   return (
@@ -7,7 +8,7 @@ export function Header() {
       <div className={style.header__content}>
         <div className={style.header__logo}>
           <img
-            src="./assets/logo-symbol.png"
+            src={logo}
             alt="shop logo"
             className={style.logo}
           />

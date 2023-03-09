@@ -16,7 +16,7 @@ export const RoutesList: React.FC = () => {
         element={<ElectronicsPage />}
       />
       <Route
-        path="electronics/:electronicsid"
+        path="electronics/:electronicsId"
         element={<ProductPage />}
       />
     </Routes>

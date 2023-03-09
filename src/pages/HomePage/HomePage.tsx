@@ -1,17 +1,21 @@
 import React, { useState, useCallback } from 'react';
+import style from './HomePage.module.scss';
 import { SearchBar } from '../../components/SearchBar/SearchBar';
+import { SideBar } from '../../components/SideBar';
 
 export function HomePage() {
   const [query, setQuery] = useState('');
 
-  const handleQueryChange = useCallback((event) => {
+  const handleQueryChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(event.target.value);
   }, []);
 
   return (
-    <div className="home-page page">
-      <div className="home-page__container">
+    <div className={style.home_page}>
+      <div className={style.home_page__container}>
         <SearchBar query={query} onChange={handleQueryChange} />
+
+        <SideBar />
       </div>
     </div>
   );

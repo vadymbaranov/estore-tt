@@ -1,6 +1,27 @@
+@import './vars';
+
 %header-title-text {
   font-size: 20px;
   line-height: 28px;
   letter-spacing: -0.2px;
   font-weight: 600;
+}
+
+%filter-buttons {
+  box-sizing: border-box;
+  height: 40px;
+  width: 193px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: $mainTextColor;
+  border: 1px solid $secondaryBackgroundColor;
+  border-radius: 6px;
+  background-color: $whiteColor;
+}
+
+%filter-arrows {
+  height: 17px;
+  width: 14px;
+  color: $filterArrowColor;
 }

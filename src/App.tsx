@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.scss';
 import { Header } from './components/Header';
-import { RoutesList } from './ReoutesList';
+import { RoutesList } from './RoutesList';
 
 export const App = () => (
   <div className="app">
