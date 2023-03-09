@@ -20,7 +20,6 @@ export const App: React.FC = () => {
   return (
     <div className="starter">
       <Provider onClick={() => ({})}>
-        <TodoList />
       </Provider>
     </div>
   );
