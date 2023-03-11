@@ -25,17 +25,28 @@
 .logo {
   height: 40px;
   width: 38px;
+
+  @include onMobile {
+    visibility: hidden;
+  }
 }
 
 .title {
-
   &__task {
     @extend %header-title-text;
     color: $lightBlueColor;
+
+    @include onMobile {
+      visibility: hidden;
+    }
   }
 
   &__author {
     @extend %header-title-text;
     color: $mainBlueColor;
+
+    @include onMobile {
+      visibility: hidden;
+    }
   }
 }

@@ -1,12 +1,26 @@
+@import '../../styles/mixins';
+
 .home_page {
   &__container {
     margin: 0 auto;
     max-width: 1180px;
+
+    @include onTablet {
+      max-width: 944px;
+    }
+
+    @include onMobile {
+      max-width: 360px;
+    }
   }
 
   &_product__container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
+    @include onMobile {
+      flex-direction: column;
+    }
   }
 }

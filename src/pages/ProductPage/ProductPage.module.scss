@@ -8,21 +8,222 @@
   &__container {
     margin: 0 auto;
     max-width: 1180px;
+
+    @include onTablet {
+      max-width: 944px;
+    }
   }
 }
 
 .item {
   &__info {
+    margin-bottom: 33px;
     display: flex;
     flex-direction: row;
     height: 507px;
     background-color: $whiteColor;
-    border: 1px solid #DEE2E7;
+    border: 1px solid $secondaryBackgroundColor;
     border-radius: 6px;
+
+    @include onMobile {
+      height: 100dvh;
+      flex-direction: column;
+    }
   }
 
   &__image {
+    margin: 20px 22px 107px 19px;
     width: 380px;
     height: 380px;
+
+    @include onTablet {
+      margin: 20px 20px 58px;
+    }
+  }
+
+  &__details {
+    margin-top: 21px;
+    width: 430px;
+
+    @include onTablet {
+      margin-top: 29px;
+      margin-right: 20px;
+      width: 504px;
+    }
+  }
+
+  &__name {
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: -0.2px;
+    color: $mainTextColor;
+
+    @include onTablet {
+      margin-bottom: 12px;
+    }
+  }
+
+  &__price {
+    margin: 0 0 10px;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -0.2px;
+    color: $mainTextColor;
+
+    @include onTablet {
+      margin: 0 0 12px;
+    }
+  }
+
+  &_buy {
+    &__button {
+      margin-bottom: 28px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 430px;
+      height: 42px;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 19px;
+      color: $whiteColor;
+      background: linear-gradient(180deg, #127FFF 0%, #0067FF 100%);
+      border-radius: 6px;
+      border: none;
+
+      @include onTablet {
+        margin-bottom: 32px;
+        width: 504px;
+        height: 48px;
+      }
+    }
+
+    &__logo {
+      margin-right: 10px;
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &__description {
+    height: 285px;
+    background-color: $whiteColor;
+    border: 1px solid $secondaryBackgroundColor;
+    box-shadow: 0px 1px 3px rgba(56, 56, 56, 0.1);
+    border-radius: 6px;
+
+    @include onTablet {
+      height: 197px;
+    }
+  }
+}
+
+.info {
+  &__container {
+    border-top: 1px solid $secondaryBackgroundColor;
+    border-bottom: 1px solid $secondaryBackgroundColor;
+  }
+
+  &__category {
+    margin-bottom: 14px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    @include onTablet {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__type {
+    margin: 14px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    @include onTablet {
+      margin: 16px 0;
+    }
+  }
+
+  &__material {
+    margin-bottom: 14px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    @include onTablet {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__design {
+    margin-bottom: 14px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
+
+.category {
+  &__title {
+    @extend %product-info-title;
+  }
+
+  &__name {
+    width: 50%;
+    @extend %product-info-name;
+  }
+}
+
+.type {
+  &__title {
+    @extend %product-info-title;
+  }
+
+  &__name {
+    width: 50%;
+    @extend %product-info-name;
+  }
+}
+
+.material {
+  &__title {
+    @extend %product-info-title;
+  }
+
+  &__name {
+    width: 50%;
+    @extend %product-info-name;
+  }
+}
+
+.design {
+  &__title {
+    @extend %product-info-title;
+  }
+
+  &__name {
+    width: 50%;
+    @extend %product-info-name;
+  }
+}
+
+.description {
+  margin: 28px 26px 0;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.2px;
+  color: $secondaryTextColor;
+
+  @include onTablet {
+    margin: 21px 20px 0;
   }
 }

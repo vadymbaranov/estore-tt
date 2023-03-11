@@ -33,11 +33,11 @@ export const ProductItem: React.FC<Props> = ({ product }) => {
         <Link className={style.name__link} to={`/electronics/${id}`}>
           <h2 className={style.product__name}>{name}</h2>
         </Link>
-        <p className={style.product__price}>{`$ ${price}`}</p>
+        <p className={style.product__price}>{`$${price}`}</p>
         <p className={style.product__brand}>{brand}</p>
         <article className={style.product__description}>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-          Rerum quaerat officiis quisquam eius minima mollitia porro earum. Ab, iste exercitationem!
+          Rerum quaerat officiis quisquam eius minima mollitia porro
           {/* {description} */}
         </article>
         <button type="button" className={style.product__description_full}>View details</button>

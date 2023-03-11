@@ -1,6 +1,8 @@
+/* eslint-disable no-nested-ternary */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import style from './Breadcrumbs.module.scss';
+import backArrow from '../../assets/navBackArrow.svg';
 
 type Props = {
   crumbs: Array<{
@@ -20,7 +22,10 @@ export const Breadcrumbs: React.FC<Props> = ({ crumbs }) => (
           >
             {title !== 'home'
               ? title
-              : 'Home'}
+              : (window.innerWidth <= 999
+                ? <img src={backArrow} alt="navigate back" className={style.breadcrumbs__back} />
+                : 'Home'
+              )}
           </Link>
         </li>
       );
