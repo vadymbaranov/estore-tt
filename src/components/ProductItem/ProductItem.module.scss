@@ -1,0 +1,72 @@
+@import '../../styles/vars';
+@import '../../styles/extends';
+@import '../../styles/mixins';
+
+.product {
+  &__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0 12px;
+    width: 930px;
+    height: 230px;
+    background-color: $whiteColor;
+    border: 1px solid #DEE2E7;
+    border-radius: 6px;
+  }
+
+  &__image {
+    margin-left: 7px;
+    width: 210px;
+    height: 210px;
+  }
+
+  &__info {
+
+  }
+
+  &__name {
+    margin: 23px 0 16px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    color: $mainTextColor;
+  }
+
+  &__price {
+    margin-bottom: 4px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: -0.2px;
+    color: $mainTextColor;
+  }
+
+  &__brand {
+    margin-bottom: 7px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+    color: $subsidiaryGreyColor;
+  }
+
+  &__description {
+    margin-right: 84px;
+    margin-bottom: 8px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+    color: $secondaryTextColor;
+
+    &_full {
+      margin-bottom: 31px;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 19px;
+      color: $mainBlueColor;
+      @extend %button-reset;
+    }
+  }
+}

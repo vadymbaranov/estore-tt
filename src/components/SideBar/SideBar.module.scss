@@ -1,0 +1,111 @@
+@import '../../styles/vars';
+@import '../../styles/extends';
+@import '../../styles/mixins';
+
+.sidebar {
+  &__container {
+    margin-right: 30px;
+    width: 230px;
+  }
+}
+
+.brands {
+  &__filter {
+    margin-bottom: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-top: 1px solid $secondaryBackgroundColor;
+    border-bottom: 1px solid $secondaryBackgroundColor;
+  }
+
+  &__title {
+    margin: 0 0 23px;
+    padding-top: 14px;
+    @extend %sidebar-title;
+  }
+
+  &__item {
+    margin-bottom: 17px;
+    display: flex;
+    align-items: center;
+    gap: 0 13px;
+
+    &:last-child {
+      margin-bottom: 0;
+      padding-bottom: 26px;
+    }
+  }
+
+  &__checkbox {
+    width: 20px;
+    height: 20px;
+  }
+
+}
+
+.price {
+  &__title {
+    margin: 0 0 23px;
+    @extend %sidebar-title;
+  }
+
+  &__button {
+    // display: block;
+    margin: 0 auto 40px;
+    
+    height: 40px;
+    width: 76px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: $mainBlueColor;
+    background-color: $whiteColor;
+    border: 1px solid #DEE2E7;
+    box-shadow: 0px 1px 2px rgba(56, 56, 56, 0.08);
+    border-radius: 6px;
+  }
+
+  &__reset {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: $mainBlueColor;
+    @extend %button-reset;
+  }
+}
+
+.range {
+  &__box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__wrap {
+    margin-bottom: 20px;
+  }
+}
+
+.number {
+  &__container {
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    gap: 0 8px;
+  }
+
+  &__min {
+    &_box {
+      @extend %input-box;
+    }
+  }
+
+  &__max {
+    &_box {
+      margin-right: 32px;
+      @extend %input-box;
+    }
+  }
+}

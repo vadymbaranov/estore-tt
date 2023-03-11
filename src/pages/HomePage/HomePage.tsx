@@ -2,6 +2,7 @@ import React, { useState, useCallback } from 'react';
 import style from './HomePage.module.scss';
 import { SearchBar } from '../../components/SearchBar/SearchBar';
 import { SideBar } from '../../components/SideBar';
+import { ProductList } from '../../components/ProductList';
 
 export const HomePage: React.FC = () => {
   const [query, setQuery] = useState('');
@@ -13,9 +14,16 @@ export const HomePage: React.FC = () => {
   return (
     <div className={style.home_page}>
       <div className={style.home_page__container}>
-        <SearchBar query={query} onChange={handleQueryChange} />
+        <SearchBar
+          query={query}
+          onChange={handleQueryChange}
+        />
 
-        <SideBar />
+        <div className={style.home_page_product__container}>
+          <SideBar />
+
+          <ProductList />
+        </div>
       </div>
     </div>
   );
