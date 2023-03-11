@@ -15,7 +15,7 @@ export const RoutesList: React.FC = () => {
         element={<Navigate to="/" replace />}
       />
       <Route
-        path="electronics/:electronicsId"
+        path="electronics/:productId"
         element={<ProductPage />}
       />
     </Routes>

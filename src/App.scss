@@ -1,5 +1,6 @@
 @import './styles/vars';
-@import './styles/normalize';
+@import './styles/typography';
+@import './styles/reset';
 @import './styles/mixins';
 @import './styles/extends';
 
@@ -8,4 +9,8 @@
   width: 100%;
   background-color: $mainBackgroundColor;
   scroll-behavior: smooth;
+
+  @include onMobile {
+    height: 100%;
+  }
 }

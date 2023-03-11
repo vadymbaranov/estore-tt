@@ -1,4 +1,5 @@
 @import './vars';
+@import './mixins';
 
 %header-title-text {
   font-size: 20px;
@@ -19,6 +20,14 @@
   border-radius: 6px;
   background-color: $whiteColor;
   cursor: pointer;
+
+  @include onMobile {
+    height: 30px;
+    width: 147px;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+  }
 }
 
 %filter-arrows {
@@ -26,6 +35,11 @@
   width: 14px;
   color: $subsidiaryGreyColor;
   cursor: pointer;
+
+  @include onMobile {
+    height: 13px;
+    width: 11px;
+  }
 }
 
 %sidebar-title {
@@ -49,4 +63,30 @@
   height: 40px;
   border: 1px solid $secondaryBackgroundColor;
   border-radius: 6px;
+}
+
+%product-info-title {
+  width: 35%;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: $subsidiaryGreyColor;
+
+  @include onMobile {
+    line-height: 22px;
+    letter-spacing: -0.2px;
+  }
+}
+
+%product-info-name {
+  width: 50%;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: $secondaryTextColor;
+
+  @include onMobile {
+    line-height: 22px;
+    letter-spacing: -0.2px;
+  }
 }
