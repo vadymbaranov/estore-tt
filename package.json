@@ -3,6 +3,10 @@
   "name": "estore-tt",
   "version": "0.1.0",
   "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mui/material": "^5.11.12",
+    "@mui/types": "^7.2.3",
     "@types/jest": "^26.0.23",
     "@types/node": "^12.20.10",
     "@types/react": "^17.0.4",

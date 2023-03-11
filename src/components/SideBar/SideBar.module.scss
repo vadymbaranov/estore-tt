@@ -40,6 +40,8 @@
   &__checkbox {
     width: 20px;
     height: 20px;
+    border: 2px solid #BDBDBD;
+    border-radius: 5px;
   }
 
 }
@@ -51,7 +53,6 @@
   }
 
   &__button {
-    // display: block;
     margin: 0 auto 40px;
     
     height: 40px;
@@ -104,7 +105,7 @@
 
   &__max {
     &_box {
-      margin-right: 32px;
+      // margin-right: 32px;
       @extend %input-box;
     }
   }

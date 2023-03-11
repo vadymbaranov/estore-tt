@@ -1,7 +1,6 @@
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { HomePage } from './pages/HomePage';
-import { ElectronicsPage } from './pages/ElectronicsPage';
 import { ProductPage } from './pages/ProductPage';
 
 export const RoutesList: React.FC = () => {
@@ -13,7 +12,7 @@ export const RoutesList: React.FC = () => {
       />
       <Route
         path="electronics"
-        element={<ElectronicsPage />}
+        element={<Navigate to="/" replace />}
       />
       <Route
         path="electronics/:electronicsId"

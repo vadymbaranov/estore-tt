@@ -1,8 +1,24 @@
-import React from 'react';
+/* eslint-disable no-console */
+import React, { useState } from 'react';
+import Slider from '@mui/material/Slider';
 import style from './SideBar.module.scss';
 
 export const SideBar: React.FC = () => {
   const brands: string[] = ['Samsung', 'Apple', 'Huawei', 'Pocco', 'Lenovo'];
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [brandsSelected, setBrandsSelected] = useState<string[]>([]);
+
+  const handleBrandChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.checked) {
+      setBrandsSelected([...brandsSelected, event.target.value]);
+    } else {
+      setBrandsSelected(
+        brandsSelected.filter((brandSelected) => brandSelected !== event.target.value),
+      );
+    }
+  };
+
+  console.log(brandsSelected);
 
   return (
     <div className={style.sidebar__container}>
@@ -17,8 +33,9 @@ export const SideBar: React.FC = () => {
             <input
               id="brand"
               type="checkbox"
-              value=""
+              value={brand}
               className={style.brands__checkbox}
+              onChange={handleBrandChange}
             />
             {brand}
           </label>
@@ -28,8 +45,13 @@ export const SideBar: React.FC = () => {
       <div className={style.price__filter}>
         <h5 className={style.price__title}>Price range</h5>
         <div className={style.range__wrap}>
-          <input min="0" max="3000" type="range" />
-          <input min="0" max="3000" type="range" />
+          <Slider
+            getAriaLabel={() => 'Temperature range'}
+            // value={value}
+            // onChange={handleChange}
+            valueLabelDisplay="auto"
+            // getAriaValueText={valuetext}
+          />
         </div>
         <div className={style.range__box}>
           <div className={style.number__container}>
