@@ -90,3 +90,15 @@
     letter-spacing: -0.2px;
   }
 }
+
+%filter-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 28px;
+  height: 30px;
+  background-color: $whiteColor;
+  border: 1px solid $secondaryBackgroundColor;
+  border-radius: 6px;
+  cursor: pointer;
+}

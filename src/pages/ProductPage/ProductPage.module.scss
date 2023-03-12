@@ -12,6 +12,10 @@
     @include onTablet {
       max-width: 944px;
     }
+
+    @include onMobile {
+      max-width: 340px;
+    }
   }
 }
 

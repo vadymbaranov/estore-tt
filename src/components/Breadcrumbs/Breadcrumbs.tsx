@@ -22,10 +22,10 @@ export const Breadcrumbs: React.FC<Props> = ({ crumbs }) => (
           >
             {title !== 'home'
               ? title
-              : (window.innerWidth <= 999
-                ? <img src={backArrow} alt="navigate back" className={style.breadcrumbs__back} />
-                : 'Home'
-              )}
+              : 'Home'}
+            {(window.innerWidth <= 999 && title === 'home') && (
+              <img src={backArrow} alt="navigate back" className={style.breadcrumbs__back} />
+            )}
           </Link>
         </li>
       );
