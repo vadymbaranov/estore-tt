@@ -5,7 +5,7 @@ import path from 'path';
 
 async function base64_encode() {
   const dirName = 'public/assets';
-  const fileNames = ['huawei-phone.png', 'huawei-tablet.png', 'watch.png', 'iphone.png', 'macbook.png', 'macbook.png' ];
+  const fileNames = ['huaweiPhone.png', 'huaweiTablet.png', 'watch.png', 'iPhone.png', 'macBook.png', 'macBook.png'];
   const resultFilePath = path.resolve(dirName, 'encodedImages.json');
   const data = [];
 

@@ -8,9 +8,11 @@ import { Breadcrumbs } from '../../components/Breadcrumbs';
 export const HomePage: React.FC = () => {
   const [query, setQuery] = useState('');
 
-  const handleQueryChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
-    setQuery(event.target.value);
-  }, []);
+  const handleQueryChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      setQuery(event.target.value);
+    }, [],
+  );
 
   return (
     <div className={style.home_page}>
@@ -22,10 +24,13 @@ export const HomePage: React.FC = () => {
           ]}
         />
 
-        <SearchBar
-          query={query}
-          onChange={handleQueryChange}
-        />
+        <div className={style.home_page_nav__container}>
+          <SearchBar
+            query={query}
+            onChange={handleQueryChange}
+          />
+
+        </div>
 
         <div className={style.home_page_product__container}>
           <SideBar />

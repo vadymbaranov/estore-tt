@@ -9,10 +9,6 @@
   background-color: $whiteColor;
   height: 86px;
 
-  @include onMobile {
-    height: 50px;
-  }
-
   &__content {
     margin-left: 40px;
 

@@ -1,25 +1,33 @@
+@import '../../styles/vars';
 @import '../../styles/mixins';
 
 .home_page {
   &__container {
     margin: 0 auto;
     max-width: 1180px;
+    background-color: $mainBackgroundColor;
 
     @include onTablet {
       max-width: 944px;
     }
+  }
 
-    @include onMobile {
-      max-width: 360px;
-    }
+  &_nav__container {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 100%;
   }
 
   &_product__container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    background-color: $mainBackgroundColor;
 
     @include onMobile {
+      margin: 0 auto;
+      max-width: 360px;
       flex-direction: column;
     }
   }

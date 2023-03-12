@@ -7,10 +7,16 @@
 .app {
   height: 100dvh;
   width: 100%;
-  background-color: $mainBackgroundColor;
   scroll-behavior: smooth;
+  background-color: $mainBackgroundColor;
 
   @include onMobile {
     height: 100%;
+  }
+}
+
+.page {
+  &__container {
+    background-color: $mainBackgroundColor;
   }
 }

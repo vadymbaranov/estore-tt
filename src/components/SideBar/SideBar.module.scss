@@ -10,6 +10,11 @@
     @include onTablet {
       margin-right: 22px;
     }
+
+    @include onMobile {
+      margin: 0 15px 0;
+      width: 330px;
+    }
   }
 }
 
@@ -21,39 +26,28 @@
     justify-content: space-between;
     border-top: 1px solid $secondaryBackgroundColor;
     border-bottom: 1px solid $secondaryBackgroundColor;
+
+    @include onMobile {
+      margin-bottom: 56px;
+      border-bottom: none;
+    }
+  }
+
+  &__confirm {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
   }
 
   &__title {
     margin: 0 0 23px;
     padding-top: 14px;
     @extend %sidebar-title;
-  }
 
-  &__item {
-    margin-bottom: 17px;
-    display: flex;
-    align-items: center;
-    gap: 0 13px;
-
-    &:last-child {
-      margin-bottom: 0;
-      padding-bottom: 26px;
+    @include onMobile {
+      margin: 0;
     }
-  }
-
-  &__checkbox {
-    width: 20px;
-    height: 20px;
-    border: 2px solid #BDBDBD;
-    border-radius: 5px;
-  }
-
-}
-
-.price {
-  &__title {
-    margin: 0 0 23px;
-    @extend %sidebar-title;
   }
 
   &__button {
@@ -71,6 +65,103 @@
     box-shadow: 0px 1px 2px rgba(56, 56, 56, 0.08);
     border-radius: 6px;
     cursor: pointer;
+
+    @include onMobile {
+      margin: 0;
+      padding: 14px 0 0;
+      width: 38px;
+      height: 20px;
+      font-weight: 500;
+      border: none;
+      box-shadow: none;
+      border-radius: 0;
+      background: none;
+      outline: none;
+    }
+  }
+
+  &__wrap {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  &__item {
+    margin-bottom: 17px;
+    display: flex;
+    align-items: center;
+    gap: 0 13px;
+
+    @include onMobile {
+      justify-content: space-between;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+      padding-bottom: 26px;
+      
+      @include onMobile {
+        padding-bottom: 0;
+      }
+    }
+  }
+
+  &__checkbox {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #BDBDBD;
+    border-radius: 5px;
+  }
+
+}
+
+.price {
+
+  &__confirm {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__title {
+    margin: 0 0 23px;
+    @extend %sidebar-title;
+
+    @include onMobile {
+      margin: 0;
+    }
+  }
+
+  &__button {
+    margin: 0 auto 40px;
+    
+    height: 40px;
+    width: 76px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: $mainBlueColor;
+    background-color: $whiteColor;
+    border: 1px solid #DEE2E7;
+    box-shadow: 0px 1px 2px rgba(56, 56, 56, 0.08);
+    border-radius: 6px;
+    cursor: pointer;
+
+    @include onMobile {
+      margin: 0;
+      padding: 0;
+      height: 20px;
+      width: 38px;
+      font-weight: 500;
+      border: none;
+      box-shadow: none;
+      border-radius: 0;
+      background: none;
+      outline: none;
+    }
   }
 
   &__reset {
@@ -79,6 +170,11 @@
     line-height: 19px;
     color: $mainBlueColor;
     @extend %button-reset;
+
+    @include onMobile {
+      margin-top: 30px;
+      margin-bottom: 18px;
+    }
   }
 }
 
@@ -92,14 +188,22 @@
   &__wrap {
     margin-bottom: 20px;
   }
+
+  &__slider {
+    color: $mainBlueColor;
+  }
 }
 
 .number {
   &__container {
     margin-bottom: 8px;
     display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
     gap: 0 8px;
+
+    @include onMobile {
+      margin-bottom: 10px;
+    }
   }
 
   &__min {
@@ -112,5 +216,17 @@
     &_box {
       @extend %input-box;
     }
+  }
+}
+
+.wrap {
+  &__min {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__max {
+    display: flex;
+    flex-direction: column;
   }
 }

@@ -4,6 +4,7 @@ import arrowUp from '../../assets/arrow-up.png';
 import arrowDown from '../../assets/arrow-down.png';
 import filterOpen from '../../assets/filterButtonOpen.svg';
 import filterClose from '../../assets/filterButtonClose.svg';
+import activeDot from '../../assets/filterApplied.svg';
 
 type Props = {
   query: string;
@@ -15,11 +16,11 @@ export const SearchBar: React.FC<Props> = ({ query, onChange }) => {
 
   const visibleArea = window.innerWidth;
 
-  if (filterOpen) {
-    document.body.style.overflow = 'hidden';
-  } else {
-    document.body.style.overflow = 'auto';
-  }
+  // if (filterOpen) {
+  //   document.body.style.overflow = 'hidden';
+  // } else {
+  //   document.body.style.overflow = 'auto';
+  // }
 
   useEffect(() => {
     const handleWindowResize = () => {
@@ -59,7 +60,7 @@ export const SearchBar: React.FC<Props> = ({ query, onChange }) => {
             {filterOpened ? (
               <button
                 type="button"
-                className={style.filter__open}
+                className={style.filter__close}
                 onClick={() => setFilterOpened(false)}
               >
                 <img src={filterClose} alt="Filter" />
@@ -67,10 +68,19 @@ export const SearchBar: React.FC<Props> = ({ query, onChange }) => {
             ) : (
               <button
                 type="button"
-                className={style.filter__close}
+                className={style.filter__open}
                 onClick={() => setFilterOpened(true)}
               >
-                <img src={filterOpen} alt="Filter" />
+                <img
+                  src={filterOpen}
+                  alt="Filter"
+                  className={style.filter__open_image}
+                />
+                <img
+                  src={activeDot}
+                  alt="Filter applied"
+                  className={style.filter__open_active}
+                />
               </button>
             )}
           </div>

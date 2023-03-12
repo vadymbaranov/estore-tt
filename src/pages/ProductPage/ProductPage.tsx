@@ -7,6 +7,7 @@ import { Breadcrumbs } from '../../components/Breadcrumbs';
 import { Product } from '../../types/Product';
 
 export const ProductPage: React.FC = () => {
+  const visibleArea: number = window.innerWidth;
   const { productId } = useParams();
   // const location = useLocation();
   const items: Product[] = products;
@@ -32,12 +33,18 @@ export const ProductPage: React.FC = () => {
             // { title: `${name}`, path: '/item' },
           ]}
         />
-
-        <div className={style.item__info}>
+        {visibleArea <= 999 && (
           <div className={style.item_image__container}>
             <img src={image} alt="" className={style.item__image} />
           </div>
+        )}
 
+        <div className={style.item__info}>
+          {visibleArea > 999 && (
+            <div className={style.item_image__container}>
+              <img src={image} alt="" className={style.item__image} />
+            </div>
+          )}
           <div className={style.item__details}>
             <h2 className={style.item__name}>
               {name}
