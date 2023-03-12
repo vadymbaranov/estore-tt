@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/estore-tt/static/css/main.2d884253.chunk.css",
+    "main.js": "/estore-tt/static/js/main.3e36478c.chunk.js",
+    "main.js.map": "/estore-tt/static/js/main.3e36478c.chunk.js.map",
+    "runtime-main.js": "/estore-tt/static/js/runtime-main.06957a1e.js",
+    "runtime-main.js.map": "/estore-tt/static/js/runtime-main.06957a1e.js.map",
+    "static/js/2.63824d58.chunk.js": "/estore-tt/static/js/2.63824d58.chunk.js",
+    "static/js/2.63824d58.chunk.js.map": "/estore-tt/static/js/2.63824d58.chunk.js.map",
+    "index.html": "/estore-tt/index.html",
+    "static/css/main.2d884253.chunk.css.map": "/estore-tt/static/css/main.2d884253.chunk.css.map",
+    "static/js/2.63824d58.chunk.js.LICENSE.txt": "/estore-tt/static/js/2.63824d58.chunk.js.LICENSE.txt",
+    "static/media/Breadcrumbs.module.scss": "/estore-tt/static/media/breadcrumbArrow.e11d74c5.svg",
+    "static/media/cart.c2ba45b0.svg": "/estore-tt/static/media/cart.c2ba45b0.svg",
+    "static/media/filterButtonClose.09d2e4cf.svg": "/estore-tt/static/media/filterButtonClose.09d2e4cf.svg",
+    "static/media/filterButtonOpen.73483d69.svg": "/estore-tt/static/media/filterButtonOpen.73483d69.svg",
+    "static/media/navBackArrow.da3c2613.svg": "/estore-tt/static/media/navBackArrow.da3c2613.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.06957a1e.js",
+    "static/js/2.63824d58.chunk.js",
+    "static/css/main.2d884253.chunk.css",
+    "static/js/main.3e36478c.chunk.js"
+  ]
+}
