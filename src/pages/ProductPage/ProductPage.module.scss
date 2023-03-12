@@ -32,11 +32,6 @@
     border-radius: 6px;
 
     @include onMobile {
-      height: 100dvh;
-      flex-direction: column;
-    }
-
-    @include onMobile {
       margin: 0 0 20px;
       flex-direction: column;
       justify-content: center;
@@ -80,7 +75,7 @@
     }
 
     @include onMobile {
-      margin: 16px 16px 0;
+      margin: 16px auto 0;
       width: 330px;
     }
   }
@@ -167,7 +162,7 @@
     }
 
     @include onMobile {
-      margin: 0 16px;
+      margin: 0 auto;
       width: 100%;
       box-shadow: none;
       border: none;
@@ -286,7 +281,7 @@
   }
 
   @include onMobile {
-    margin: 0;
+    margin: 0 auto;
     width: 330px;
   }
 }
