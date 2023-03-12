@@ -45,7 +45,7 @@
     justify-content: center;
     align-items: center;
     margin: 20px 22px 107px 19px;
-    width: 100%;
+    width: 380px;
     height: 380px;
 
     @include onTablet {
@@ -55,13 +55,20 @@
     @include onMobile {
       margin: 0 0 16px;
       height: 305px;
+      width: 100%;
       background-color: $mobileImageBackground;
     }
   }
 
   &__image {
-    width: 325px;
-    height: 275px;
+    width: 345px;
+    height: 345px;
+
+
+    @include onMobile {
+      width: 325px;
+      height: 275px;
+    }
   }
 
   &__details {

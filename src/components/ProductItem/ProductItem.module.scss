@@ -22,16 +22,29 @@
   }
 
   &__image {
-    margin-top: 9px;
-    margin-left: 7px;
-    width: 210px;
-    height: 210px;
+    width: 188px;
+    height: 188px;
 
     @include onMobile {
-      margin-top: 8px;
-      margin-left: 8px;
-      width: 98px;
-      height: 98px;
+      width: 88px;
+      height: 88px;
+    }
+
+    &_container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 9px;
+      margin-left: 7px;
+      width: 210px;
+      height: 210px;
+
+      @include onMobile {
+        margin-top: 8px;
+        margin-left: 8px;
+        width: 98px;
+        height: 98px;
+      }
     }
   }
 

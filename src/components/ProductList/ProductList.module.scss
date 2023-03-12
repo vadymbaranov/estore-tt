@@ -1,7 +1,12 @@
 @import '../../styles/vars';
+@import '../../styles/mixins';
 
 .products__container {
   margin: 0 auto;
-  height: 100dvh;
+  height: 100%;
   background-color: $mainBackgroundColor;
+
+  @include onMobile {
+    height: 100dvh;
+  }
 }
