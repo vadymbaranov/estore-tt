@@ -13,7 +13,7 @@ export const ProductItem: React.FC<Props> = ({ product }) => {
     name,
     price,
     brand,
-    // description,
+    description,
     image,
   } = product;
 
@@ -36,11 +36,11 @@ export const ProductItem: React.FC<Props> = ({ product }) => {
         <p className={style.product__price}>{`$${price}`}</p>
         <p className={style.product__brand}>{brand}</p>
         <article className={style.product__description}>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-          Rerum quaerat officiis quisquam eius minima mollitia porro
-          {/* {description} */}
+          {description}
         </article>
-        <button type="button" className={style.product__description_full}>View details</button>
+        <Link className={style.name__link} to={`/electronics/${id}`}>
+          <button type="button" className={style.product__description_full}>View details</button>
+        </Link>
       </div>
     </div>
   );

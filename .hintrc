@@ -3,6 +3,14 @@
     "development"
   ],
   "hints": {
-    "axe/parsing": "off"
+    "axe/parsing": "off",
+    "compat-api/css": [
+      "default",
+      {
+        "ignore": [
+          "-moz-appearance"
+        ]
+      }
+    ]
   }
 }

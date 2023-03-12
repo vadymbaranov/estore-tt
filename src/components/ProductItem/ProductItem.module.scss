@@ -94,11 +94,13 @@
   &__description {
     margin-bottom: 8px;
     margin-right: 84px;
+    height: 48px;
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
     letter-spacing: -0.2px;
     color: $secondaryTextColor;
+    overflow: hidden;
 
     @include onTablet {
       margin-right: 12px;

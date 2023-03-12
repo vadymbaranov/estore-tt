@@ -59,8 +59,13 @@
 
 %input-box {
   padding: 0;
-  width: 110px;
+  padding-left: 10px;
+  width: 100px;
   height: 40px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: $mainTextColor;
   border: 1px solid $secondaryBackgroundColor;
   border-radius: 6px;
 }

@@ -101,7 +101,7 @@ export const SideBar: React.FC = () => {
                 getAriaValueText={valuetext}
                 min={0}
                 max={5000}
-                className={style.range__slider}
+                className={style.slider}
                 disableSwap
               />
             </div>
@@ -157,9 +157,9 @@ export const SideBar: React.FC = () => {
                 onChange={handlePriceChange}
                 valueLabelDisplay="auto"
                 getAriaValueText={valuetext}
-                className={style.range__slider}
-                min={0}
-                max={5000}
+                className={style.slider}
+                min={150}
+                max={3000}
                 disableSwap
               />
             </div>
