@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/estore-tt/static/css/main.0f6fac78.chunk.css",
-    "main.js": "/estore-tt/static/js/main.969355ec.chunk.js",
-    "main.js.map": "/estore-tt/static/js/main.969355ec.chunk.js.map",
+    "main.css": "/estore-tt/static/css/main.d4a1cdc0.chunk.css",
+    "main.js": "/estore-tt/static/js/main.311216fa.chunk.js",
+    "main.js.map": "/estore-tt/static/js/main.311216fa.chunk.js.map",
     "runtime-main.js": "/estore-tt/static/js/runtime-main.06957a1e.js",
     "runtime-main.js.map": "/estore-tt/static/js/runtime-main.06957a1e.js.map",
     "static/js/2.75f1f0c9.chunk.js": "/estore-tt/static/js/2.75f1f0c9.chunk.js",
     "static/js/2.75f1f0c9.chunk.js.map": "/estore-tt/static/js/2.75f1f0c9.chunk.js.map",
     "index.html": "/estore-tt/index.html",
-    "static/css/main.0f6fac78.chunk.css.map": "/estore-tt/static/css/main.0f6fac78.chunk.css.map",
+    "static/css/main.d4a1cdc0.chunk.css.map": "/estore-tt/static/css/main.d4a1cdc0.chunk.css.map",
     "static/js/2.75f1f0c9.chunk.js.LICENSE.txt": "/estore-tt/static/js/2.75f1f0c9.chunk.js.LICENSE.txt",
     "static/media/Breadcrumbs.module.scss": "/estore-tt/static/media/breadcrumbArrow.e11d74c5.svg",
     "static/media/cart.c2ba45b0.svg": "/estore-tt/static/media/cart.c2ba45b0.svg",
@@ -20,7 +20,7 @@
   "entrypoints": [
     "static/js/runtime-main.06957a1e.js",
     "static/js/2.75f1f0c9.chunk.js",
-    "static/css/main.0f6fac78.chunk.css",
-    "static/js/main.969355ec.chunk.js"
+    "static/css/main.d4a1cdc0.chunk.css",
+    "static/js/main.311216fa.chunk.js"
   ]
 }
