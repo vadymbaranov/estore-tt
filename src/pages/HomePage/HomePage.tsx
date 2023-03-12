@@ -11,7 +11,7 @@ export const HomePage: React.FC = () => {
   const handleQueryChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
       setQuery(event.target.value);
-    }, [],
+    }, [query],
   );
 
   return (

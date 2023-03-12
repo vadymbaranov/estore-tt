@@ -7,7 +7,7 @@ type Props = {
   product: Product;
 };
 
-export const ProductItem: React.FC<Props> = ({ product }) => {
+export const ProductItem: React.FC<Props> = React.memo(({ product }) => {
   const {
     id,
     name,
@@ -44,4 +44,4 @@ export const ProductItem: React.FC<Props> = ({ product }) => {
       </div>
     </div>
   );
-};
+});

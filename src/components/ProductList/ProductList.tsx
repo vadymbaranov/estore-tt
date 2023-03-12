@@ -4,7 +4,7 @@ import products from '../../assets/products.json';
 import { Product } from '../../types/Product';
 import { ProductItem } from '../ProductItem';
 
-export const ProductList: React.FC = () => {
+export const ProductList: React.FC = React.memo(() => {
   const electronics: Product[] = products;
 
   return (
@@ -14,4 +14,4 @@ export const ProductList: React.FC = () => {
       ))}
     </div>
   );
-};
+});

@@ -25,7 +25,7 @@ export const SideBar: React.FC = () => {
     }
   };
 
-  const handlePriceChange = (
+  const handlePriceRangeChange = (
     event: Event,
     newPrice: number | number[],
     activeThumb: number,
@@ -49,7 +49,19 @@ export const SideBar: React.FC = () => {
     }
   };
 
-  console.log(brandsSelected);
+  const handleMinPriceChange = (
+    event: React.ChangeEvent<HTMLInputElement>,
+  ) => {
+    setPrice([Number(event.currentTarget.value), price[1]]);
+  };
+
+  const handleMaxPriceChange = (
+    event: React.ChangeEvent<HTMLInputElement>,
+  ) => {
+    setPrice([price[0], Number(event.currentTarget.value)]);
+  };
+
+  console.log(price);
 
   return (
     <>
@@ -76,6 +88,7 @@ export const SideBar: React.FC = () => {
                     type="number"
                     value={price[0]}
                     className={style.number__min_box}
+                    onChange={handleMinPriceChange}
                   />
                 </label>
               </div>
@@ -87,6 +100,7 @@ export const SideBar: React.FC = () => {
                     type="number"
                     value={price[1]}
                     className={style.number__max_box}
+                    onChange={handleMaxPriceChange}
                   />
                 </label>
               </div>
@@ -96,7 +110,7 @@ export const SideBar: React.FC = () => {
               <Slider
                 getAriaLabel={() => 'Minimum distance shift'}
                 value={price}
-                onChange={handlePriceChange}
+                onChange={handlePriceRangeChange}
                 valueLabelDisplay="auto"
                 getAriaValueText={valuetext}
                 min={0}
@@ -154,7 +168,7 @@ export const SideBar: React.FC = () => {
               <Slider
                 getAriaLabel={() => 'Minimum distance shift'}
                 value={price}
-                onChange={handlePriceChange}
+                onChange={handlePriceRangeChange}
                 valueLabelDisplay="auto"
                 getAriaValueText={valuetext}
                 className={style.slider}
@@ -172,6 +186,7 @@ export const SideBar: React.FC = () => {
                     type="number"
                     value={price[0]}
                     className={style.number__min_box}
+                    onChange={handleMinPriceChange}
                   />
                 </label>
                 <label htmlFor="max-input" className={style.number__max}>
@@ -181,6 +196,7 @@ export const SideBar: React.FC = () => {
                     type="number"
                     value={price[1]}
                     className={style.number__max_box}
+                    onChange={handleMaxPriceChange}
                   />
                 </label>
               </div>
