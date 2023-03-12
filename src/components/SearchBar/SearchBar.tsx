@@ -91,7 +91,7 @@ export const SearchBar: React.FC<Props> = ({ query, onChange }) => {
             <input
               type="text"
               className={style.input__search}
-              placeholder="Start searching"
+              placeholder=""
               value={query}
               onChange={onChange}
             />
