@@ -1,8 +1,6 @@
 import React, {
   useState,
   useCallback,
-  useRef,
-  // useMemo
 } from 'react';
 import style from './HomePage.module.scss';
 import products from '../../assets/products.json';
@@ -60,8 +58,7 @@ export const HomePage: React.FC = () => {
   const [brandsSelected, setBrandsSelected] = useState<string[]>([]);
   const [electronics, setElectronics] = useState<Product[]>(products);
   const [price, setPrice] = useState<number[]>([150, 3000]);
-
-  const brandInput = useRef([]);
+  const [filterOpened, setFilterOpened] = useState<boolean>(false);
 
   const handleBrandChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.checked) {
@@ -71,6 +68,22 @@ export const HomePage: React.FC = () => {
         .filter(brandSelected => brandSelected !== event.target.value));
     }
   }, [brandsSelected]);
+
+  const handleFilterByPrice = useCallback(() => {
+    const visibleProducts: Product[] = [...electronics];
+
+    const productsSortedByPrice = getProductsByPrice(visibleProducts, price);
+
+    setElectronics(productsSortedByPrice);
+  }, [electronics, brandsSelected, price]);
+
+  const handleFilterByBrand = useCallback(() => {
+    const visibleProducts: Product[] = [...electronics];
+
+    const productsByBrand = getProductsByBrands(visibleProducts, brandsSelected);
+
+    setElectronics(productsByBrand);
+  }, [electronics, brandsSelected, price]);
 
   const handleProductFilter = useCallback(() => {
     const visibleProducts: Product[] = [...electronics];
@@ -104,16 +117,20 @@ export const HomePage: React.FC = () => {
 
         <div className={style.home_page_nav__container}>
           <SearchBar
+            filterActive={filterOpened}
+            onFilter={setFilterOpened}
             onSort={setSortType}
           />
         </div>
 
         <div className={style.home_page_product__container}>
           <SideBar
-            brandInput={brandInput}
+            filterOpened={filterOpened}
             price={price}
             onPrice={setPrice}
             onBrandsChange={handleBrandChange}
+            onFilterByPrice={handleFilterByPrice}
+            onFilterByBrand={handleFilterByBrand}
             onFilterReset={handleFilterReset}
             onFilterApplied={handleProductFilter}
           />

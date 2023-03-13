@@ -19,6 +19,12 @@
       height: 114px;
       width: 340px;
     }
+
+    &:first-child {
+      @include onMobile {
+        margin-top: 16px;
+      }
+    }
   }
 
   &__image {

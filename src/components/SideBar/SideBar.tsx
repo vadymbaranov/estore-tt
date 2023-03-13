@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import React, { MutableRefObject } from 'react';
+import React from 'react';
 import Slider from '@mui/material/Slider';
 import style from './SideBar.module.scss';
 
@@ -10,19 +10,23 @@ function valuetext(value: number) {
 const minDistance = 10;
 
 type Props = {
-  brandInput: MutableRefObject<T>;
+  filterOpened: boolean;
   price: number[];
   onPrice: (price: number[]) => void;
   onBrandsChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onFilterByPrice: () => void;
+  onFilterByBrand: () => void;
   onFilterReset: () => void;
   onFilterApplied: () => void;
 };
 
 export const SideBar: React.FC<Props> = ({
-  brandInput,
+  filterOpened,
   price,
   onPrice,
   onBrandsChange,
+  onFilterByPrice,
+  onFilterByBrand,
   onFilterReset,
   onFilterApplied,
 }) => {
@@ -66,9 +70,11 @@ export const SideBar: React.FC<Props> = ({
     onPrice([price[0], Number(event.currentTarget.value)]);
   };
 
+  console.log(filterOpened);
+
   return (
     <>
-      {visibleArea <= 999 ? (
+      {(visibleArea <= 999 && filterOpened) && (
         <div className={style.sidebar__container}>
           <button
             type="button"
@@ -84,7 +90,7 @@ export const SideBar: React.FC<Props> = ({
               <button
                 type="button"
                 className={style.price__button}
-                onClick={() => onFilterApplied()}
+                onClick={() => onFilterByPrice()}
               >
                 Apply
               </button>
@@ -138,6 +144,7 @@ export const SideBar: React.FC<Props> = ({
               <button
                 type="button"
                 className={style.brands__button}
+                onClick={() => onFilterByBrand()}
               >
                 Apply
               </button>
@@ -149,7 +156,6 @@ export const SideBar: React.FC<Props> = ({
                   <input
                     id="brand"
                     type="checkbox"
-                    ref={brandInput}
                     value={brand}
                     className={style.brands__checkbox}
                     onChange={(event) => onBrandsChange(event)}
@@ -159,7 +165,8 @@ export const SideBar: React.FC<Props> = ({
             </div>
           </div>
         </div>
-      ) : (
+      )}
+      {visibleArea > 999 && (
         <div className={style.sidebar__container}>
           <div className={style.brands__filter}>
             <h5 className={style.brands__title}>Brands</h5>
@@ -168,7 +175,6 @@ export const SideBar: React.FC<Props> = ({
                 <input
                   id="brand"
                   type="checkbox"
-                  ref={brandInput}
                   value={brand}
                   className={style.brands__checkbox}
                   onChange={(event) => onBrandsChange(event)}

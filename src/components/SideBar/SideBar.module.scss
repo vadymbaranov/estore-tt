@@ -28,7 +28,7 @@
     border-bottom: 1px solid $secondaryBackgroundColor;
 
     @include onMobile {
-      margin-bottom: 56px;
+      margin-bottom: 40px;
       border-bottom: none;
     }
   }

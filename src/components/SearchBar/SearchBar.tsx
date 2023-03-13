@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import style from './SearchBar.module.scss';
 import arrowUp from '../../assets/arrow-up.png';
 import arrowDown from '../../assets/arrow-down.png';
@@ -8,26 +8,22 @@ import activeDot from '../../assets/filterApplied.svg';
 import { SortByPrice } from '../../types/PriceSort';
 
 type Props = {
+  filterActive: boolean;
+  onFilter: (filterActive: boolean) => void;
   onSort: (sortType: SortByPrice) => void;
 };
 
 export const SearchBar: React.FC<Props> = React.memo(({
+  filterActive,
+  onFilter,
   onSort,
 }) => {
-  const [filterOpened, setFilterOpened] = useState<boolean>(false);
-
   const visibleArea = window.innerWidth;
-
-  // if (filterOpen) {
-  //   document.body.style.overflow = 'hidden';
-  // } else {
-  //   document.body.style.overflow = 'auto';
-  // }
 
   useEffect(() => {
     const handleWindowResize = () => {
       if (window.matchMedia('(min-width: 999px)').matches) {
-        setFilterOpened(false);
+        onFilter(!filterActive);
       }
     };
 
@@ -37,9 +33,6 @@ export const SearchBar: React.FC<Props> = React.memo(({
       window.removeEventListener('resize', handleWindowResize);
     };
   }, []);
-
-  // eslint-disable-next-line no-console
-  console.log('rendering SearchBar');
 
   return (
     <>
@@ -70,11 +63,11 @@ export const SearchBar: React.FC<Props> = React.memo(({
                 className={style.filter__arrow__down}
               />
             </button>
-            {filterOpened ? (
+            {filterActive ? (
               <button
                 type="button"
                 className={style.filter__close}
-                onClick={() => setFilterOpened(false)}
+                onClick={() => onFilter(!filterActive)}
               >
                 <img src={filterClose} alt="Filter" />
               </button>
@@ -82,7 +75,7 @@ export const SearchBar: React.FC<Props> = React.memo(({
               <button
                 type="button"
                 className={style.filter__open}
-                onClick={() => setFilterOpened(true)}
+                onClick={() => onFilter(!filterActive)}
               >
                 <img
                   src={filterOpen}

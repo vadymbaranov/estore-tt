@@ -10,9 +10,6 @@ type Props = {
 export const ProductList: React.FC<Props> = React.memo(({ products }) => {
   const electronics: Product[] = products;
 
-  // eslint-disable-next-line no-console
-  console.log('rendering ProductList');
-
   return (
     <div className={style.products__container}>
       {electronics.map(product => (
