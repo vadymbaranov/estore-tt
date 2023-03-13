@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React from 'react';
 import Slider from '@mui/material/Slider';
 import style from './SideBar.module.scss';
@@ -69,8 +68,6 @@ export const SideBar: React.FC<Props> = ({
   ) => {
     onPrice([price[0], Number(event.currentTarget.value)]);
   };
-
-  console.log(filterOpened);
 
   return (
     <>
