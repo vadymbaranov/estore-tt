@@ -1,11 +1,17 @@
 import React from 'react';
 import style from './ProductList.module.scss';
-import products from '../../assets/products.json';
 import { Product } from '../../types/Product';
 import { ProductItem } from '../ProductItem';
 
-export const ProductList: React.FC = React.memo(() => {
+type Props = {
+  products: Product[];
+};
+
+export const ProductList: React.FC<Props> = React.memo(({ products }) => {
   const electronics: Product[] = products;
+
+  // eslint-disable-next-line no-console
+  console.log('rendering ProductList');
 
   return (
     <div className={style.products__container}>

@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import React, { useState } from 'react';
+import React, { MutableRefObject } from 'react';
 import Slider from '@mui/material/Slider';
 import style from './SideBar.module.scss';
 
@@ -9,21 +9,26 @@ function valuetext(value: number) {
 
 const minDistance = 10;
 
-export const SideBar: React.FC = () => {
-  const [price, setPrice] = useState<number[]>([150, 3000]);
-  const brands: string[] = ['Samsung', 'Apple', 'Huawei', 'Pocco', 'Lenovo'];
-  const visibleArea = window.innerWidth;
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [brandsSelected, setBrandsSelected] = useState<string[]>([]);
+type Props = {
+  brandInput: MutableRefObject<T>;
+  price: number[];
+  onPrice: (price: number[]) => void;
+  onBrandsChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onFilterReset: () => void;
+  onFilterApplied: () => void;
+};
 
-  const handleBrandChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.checked) {
-      setBrandsSelected([...brandsSelected, event.target.value]);
-    } else {
-      setBrandsSelected(brandsSelected
-        .filter(brandSelected => brandSelected !== event.target.value));
-    }
-  };
+export const SideBar: React.FC<Props> = ({
+  brandInput,
+  price,
+  onPrice,
+  onBrandsChange,
+  onFilterReset,
+  onFilterApplied,
+}) => {
+  const brands: string[] = ['Samsung', 'Apple', 'Huawei', 'Pocco', 'Lenovo'];
+
+  const visibleArea = window.innerWidth;
 
   const handlePriceRangeChange = (
     event: Event,
@@ -38,43 +43,49 @@ export const SideBar: React.FC = () => {
       if (activeThumb === 0) {
         const clamped = Math.min(newPrice[0], 100 - minDistance);
 
-        setPrice([clamped, clamped + minDistance]);
+        onPrice([clamped, clamped + minDistance]);
       } else {
         const clamped = Math.max(newPrice[1], minDistance);
 
-        setPrice([clamped - minDistance, clamped]);
+        onPrice([clamped - minDistance, clamped]);
       }
     } else {
-      setPrice(newPrice as number[]);
+      onPrice(newPrice as number[]);
     }
   };
 
   const handleMinPriceChange = (
     event: React.ChangeEvent<HTMLInputElement>,
   ) => {
-    setPrice([Number(event.currentTarget.value), price[1]]);
+    onPrice([Number(event.currentTarget.value), price[1]]);
   };
 
   const handleMaxPriceChange = (
     event: React.ChangeEvent<HTMLInputElement>,
   ) => {
-    setPrice([price[0], Number(event.currentTarget.value)]);
+    onPrice([price[0], Number(event.currentTarget.value)]);
   };
-
-  console.log(price);
 
   return (
     <>
       {visibleArea <= 999 ? (
         <div className={style.sidebar__container}>
-          <button type="button" className={style.price__reset}>
+          <button
+            type="button"
+            className={style.price__reset}
+            onClick={() => onFilterReset()}
+          >
             Reset filter
           </button>
 
           <div className={style.price__filter}>
             <div className={style.price__confirm}>
               <h5 className={style.price__title}>Price range, $</h5>
-              <button type="button" className={style.price__button}>
+              <button
+                type="button"
+                className={style.price__button}
+                onClick={() => onFilterApplied()}
+              >
                 Apply
               </button>
             </div>
@@ -124,7 +135,10 @@ export const SideBar: React.FC = () => {
           <div className={style.brands__filter}>
             <div className={style.brands__confirm}>
               <h5 className={style.brands__title}>Brands</h5>
-              <button type="button" className={style.brands__button}>
+              <button
+                type="button"
+                className={style.brands__button}
+              >
                 Apply
               </button>
             </div>
@@ -135,9 +149,10 @@ export const SideBar: React.FC = () => {
                   <input
                     id="brand"
                     type="checkbox"
+                    ref={brandInput}
                     value={brand}
                     className={style.brands__checkbox}
-                    onChange={handleBrandChange}
+                    onChange={(event) => onBrandsChange(event)}
                   />
                 </label>
               ))}
@@ -153,9 +168,10 @@ export const SideBar: React.FC = () => {
                 <input
                   id="brand"
                   type="checkbox"
+                  ref={brandInput}
                   value={brand}
                   className={style.brands__checkbox}
-                  onChange={handleBrandChange}
+                  onChange={(event) => onBrandsChange(event)}
                 />
                 {brand}
               </label>
@@ -201,12 +217,20 @@ export const SideBar: React.FC = () => {
                 </label>
               </div>
 
-              <button type="button" className={style.price__button}>
+              <button
+                type="button"
+                className={style.price__button}
+                onClick={() => onFilterApplied()}
+              >
                 Apply
               </button>
             </div>
 
-            <button type="button" className={style.price__reset}>
+            <button
+              type="button"
+              className={style.price__reset}
+              onClick={() => onFilterReset()}
+            >
               Reset filter
             </button>
           </div>

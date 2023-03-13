@@ -5,13 +5,15 @@ import arrowDown from '../../assets/arrow-down.png';
 import filterOpen from '../../assets/filterButtonOpen.svg';
 import filterClose from '../../assets/filterButtonClose.svg';
 import activeDot from '../../assets/filterApplied.svg';
+import { SortByPrice } from '../../types/PriceSort';
 
 type Props = {
-  query: string;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onSort: (sortType: SortByPrice) => void;
 };
 
-export const SearchBar: React.FC<Props> = ({ query, onChange }) => {
+export const SearchBar: React.FC<Props> = React.memo(({
+  onSort,
+}) => {
   const [filterOpened, setFilterOpened] = useState<boolean>(false);
 
   const visibleArea = window.innerWidth;
@@ -36,12 +38,19 @@ export const SearchBar: React.FC<Props> = ({ query, onChange }) => {
     };
   }, []);
 
+  // eslint-disable-next-line no-console
+  console.log('rendering SearchBar');
+
   return (
     <>
       {visibleArea <= 999 ? (
         <div className={style.search__container}>
           <div className={style.filter__container}>
-            <button type="button" className={style.filter__high}>
+            <button
+              type="button"
+              className={style.filter__high}
+              onClick={() => onSort(SortByPrice.High)}
+            >
               Price: Low to High
               <img
                 src={arrowUp}
@@ -49,7 +58,11 @@ export const SearchBar: React.FC<Props> = ({ query, onChange }) => {
                 className={style.filter__arrow__up}
               />
             </button>
-            <button type="button" className={style.filter__low}>
+            <button
+              type="button"
+              className={style.filter__low}
+              onClick={() => onSort(SortByPrice.Low)}
+            >
               Price: High to Low
               <img
                 src={arrowDown}
@@ -92,11 +105,13 @@ export const SearchBar: React.FC<Props> = ({ query, onChange }) => {
               type="text"
               className={style.input__search}
               placeholder=""
-              value={query}
-              onChange={onChange}
             />
             <div className={style.filter__container}>
-              <button type="button" className={style.filter__high}>
+              <button
+                type="button"
+                className={style.filter__high}
+                onClick={() => onSort(SortByPrice.High)}
+              >
                 Price: Low to High
                 <img
                   src={arrowUp}
@@ -104,7 +119,11 @@ export const SearchBar: React.FC<Props> = ({ query, onChange }) => {
                   className={style.filter__arrow__up}
                 />
               </button>
-              <button type="button" className={style.filter__low}>
+              <button
+                type="button"
+                className={style.filter__low}
+                onClick={() => onSort(SortByPrice.Low)}
+              >
                 Price: High to Low
                 <img
                   src={arrowDown}
@@ -118,4 +137,4 @@ export const SearchBar: React.FC<Props> = ({ query, onChange }) => {
       )}
     </>
   );
-};
+});

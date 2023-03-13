@@ -17,6 +17,9 @@ export const ProductItem: React.FC<Props> = React.memo(({ product }) => {
     image,
   } = product;
 
+  // eslint-disable-next-line no-console
+  console.log('rendering ProductItem');
+
   return (
     <div className={style.product__container}>
       <div className={style.product__image_container}>

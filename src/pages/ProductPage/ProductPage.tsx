@@ -9,12 +9,12 @@ import { Product } from '../../types/Product';
 export const ProductPage: React.FC = () => {
   const visibleArea: number = window.innerWidth;
   const { productId } = useParams();
-  // const location = useLocation();
   const items: Product[] = products;
-  const product: Product = items.find(item => item.id === Number(productId));
+  const product = items.find(item => item.id === Number(productId)) as Product;
   const {
     name,
     price,
+    brand,
     description,
     category,
     type,
@@ -26,13 +26,21 @@ export const ProductPage: React.FC = () => {
   return (
     <div className={style.item_page}>
       <div className={style.item_page__container}>
-        <Breadcrumbs
-          crumbs={[
-            { title: 'home', path: '/' },
-            { title: 'Electronics', path: '/electronics' },
-            // { title: `${name}`, path: '/item' },
-          ]}
-        />
+        {visibleArea <= 999 ? (
+          <Breadcrumbs
+            crumbs={[
+              { title: 'home', path: '/' },
+            ]}
+          />
+        ) : (
+          <Breadcrumbs
+            crumbs={[
+              { title: 'home', path: '/' },
+              { title: 'Electronics', path: '/electronics' },
+              { title: `${brand}`, path: '/item' },
+            ]}
+          />
+        ) }
         {visibleArea <= 999 && (
           <div className={style.item_image__container}>
             <img src={image} alt="" className={style.item__image} />
